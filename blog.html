@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Blog - Medwin</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="css/responsive.css">
+      <!-- fevicon -->
+      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <!-- fonts -->
+      <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700|Poppins:400,700&display=swap" rel="stylesheet">
+      <!-- owl stylesheets --> 
+      <link rel="stylesheet" href="css/owl.carousel.min.css">
+      <link rel="stylesheet" href="css/owl.theme.default.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+      <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+      <style>
+         .blog_section {
+            width: 100%;
+            float: left;
+            padding: 100px 0px;
+            background-color: #f8f9fa;
+         }
+         .blog_taital {
+            width: 100%;
+            float: left;
+            font-size: 40px;
+            color: #252525;
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+         }
+         .blog_box {
+            width: 100%;
+            float: left;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+         }
+         .blog_box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 5px 25px rgba(0,0,0,0.15);
+         }
+         .blog_img {
+            width: 100%;
+            float: left;
+            position: relative;
+            overflow: hidden;
+         }
+         .blog_img img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: all 0.3s ease;
+         }
+         .blog_box:hover .blog_img img {
+            transform: scale(1.05);
+         }
+         .blog_date {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #0cb7d6;
+            color: #ffffff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+         }
+         .blog_content {
+            width: 100%;
+            float: left;
+            padding: 30px;
+         }
+         .blog_title {
+            width: 100%;
+            float: left;
+            font-size: 24px;
+            color: #252525;
+            font-weight: bold;
+            margin-bottom: 15px;
+            line-height: 1.3;
+         }
+         .blog_title a {
+            color: #252525;
+            text-decoration: none;
+         }
+         .blog_title a:hover {
+            color: #0cb7d6;
+         }
+         .blog_text {
+            width: 100%;
+            float: left;
+            font-size: 16px;
+            color: #666666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+         }
+         .blog_meta {
+            width: 100%;
+            float: left;
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+         }
+         .blog_meta span {
+            font-size: 14px;
+            color: #999;
+            margin-right: 20px;
+         }
+         .blog_meta i {
+            color: #0cb7d6;
+            margin-right: 5px;
+         }
+         .read_more {
+            width: auto;
+            float: left;
+         }
+         .read_more a {
+            font-size: 16px;
+            color: #0cb7d6;
+            text-decoration: none;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+         }
+         .read_more a:hover {
+            color: #0aa5c4;
+         }
+         .blog_sidebar {
+            width: 100%;
+            float: left;
+         }
+         .sidebar_widget {
+            width: 100%;
+            float: left;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+         }
+         .widget_title {
+            width: 100%;
+            float: left;
+            font-size: 24px;
+            color: #252525;
+            font-weight: bold;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+         }
+         .search_form {
+            width: 100%;
+            float: left;
+         }
+         .search_input {
+            width: 100%;
+            float: left;
+            padding: 15px 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-bottom: 15px;
+         }
+         .search_btn {
+            width: 100%;
+            float: left;
+         }
+         .search_btn a {
+            width: 100%;
+            font-size: 16px;
+            background-color: #0cb7d6;
+            color: #ffffff;
+            text-align: center;
+            padding: 15px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-weight: bold;
+            display: block;
+            transition: all 0.3s ease;
+         }
+         .search_btn a:hover {
+            background-color: #0aa5c4;
+            color: #ffffff;
+         }
+         .recent_posts {
+            width: 100%;
+            float: left;
+         }
+         .recent_post {
+            width: 100%;
+            float: left;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+         }
+         .recent_post:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+         }
+         .recent_post_img {
+            width: 80px;
+            height: 80px;
+            float: left;
+            margin-right: 15px;
+            border-radius: 5px;
+            overflow: hidden;
+         }
+         .recent_post_img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+         }
+         .recent_post_content {
+            width: calc(100% - 95px);
+            float: left;
+         }
+         .recent_post_title {
+            width: 100%;
+            float: left;
+            font-size: 16px;
+            color: #252525;
+            font-weight: 500;
+            margin-bottom: 5px;
+            line-height: 1.3;
+         }
+         .recent_post_title a {
+            color: #252525;
+            text-decoration: none;
+         }
+         .recent_post_title a:hover {
+            color: #0cb7d6;
+         }
+         .recent_post_date {
+            width: 100%;
+            float: left;
+            font-size: 14px;
+            color: #999;
+         }
+         .categories_list {
+            width: 100%;
+            float: left;
+         }
+         .categories_list ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+         }
+         .categories_list li {
+            width: 100%;
+            float: left;
+            margin-bottom: 10px;
+         }
+         .categories_list li a {
+            color: #666;
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.3s ease;
+         }
+         .categories_list li a:hover {
+            color: #0cb7d6;
+            padding-left: 10px;
+         }
+         .pagination {
+            width: 100%;
+            float: left;
+            text-align: center;
+            margin-top: 50px;
+         }
+         .pagination ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: inline-block;
+         }
+         .pagination li {
+            float: left;
+            margin: 0 5px;
+         }
+         .pagination li a {
+            display: block;
+            padding: 10px 15px;
+            background-color: #ffffff;
+            color: #666;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+         }
+         .pagination li a:hover,
+         .pagination li.active a {
+            background-color: #0cb7d6;
+            color: #ffffff;
+         }
+      </style>
+   </head>
+   <body>
+      <!-- header top section start -->
+      <div class="header_top_section">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <div class="header_top_main">
+                     <div class="call_text"><a href="#"><span class="padding_right0"><i class="fa fa-phone" aria-hidden="true"></i></span>  Call : +01 1234567890</a></div>
+                     <div class="call_text_2"><a href="#"><span class="padding_right0"><i class="fa fa-envelope" aria-hidden="true"></i></span> demo@gmail.com</a></div>
+                     <div class="call_text_1"><a href="#"><span class="padding_right0"><i class="fa fa-map-marker" aria-hidden="true"></i></span> Location</a></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- header top section end -->
+      <!-- header section start -->
+      <div class="header_section">
+         <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+               <a class="navbar-brand"href="index.html"><img src="images/logo.png"></a>
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav ml-auto">
+                     <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="treatment.html">Treatment</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="doctors.html">Doctors</a>
+                     </li>
+                     <li class="nav-item active">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                     </li>
+                  </ul>
+                  <form class="form-inline my-2 my-lg-0">
+                  </form>
+               </div>
+            </nav>
+            <div class="custom_bg">
+               <div class="custom_menu">
+                  <ul>
+                     <li><a href="index.html">Home</a></li>
+                     <li><a href="about.html">About</a></li>
+                     <li><a href="treatment.html">Treatment</a></li>
+                     <li><a href="doctors.html">Doctors</a></li>
+                     <li class="active"><a href="blog.html">Blog</a></li>
+                     <li><a href="contact.html">Contact Us</a></li>
+                  </ul>
+               </div>
+               <form class="form-inline my-2 my-lg-0">
+                  <div class="search_btn">
+                     <li><a href="login.html"><i class="fa fa-user" aria-hidden="true"></i><span class="signup_text">Login</span></a></li>
+                     <li><a href="signup.html"><i class="fa fa-user" aria-hidden="true"></i><span class="signup_text">Sign Up</span></a></li>
+                     <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+      <!-- header section end -->
+      
+      <!-- blog section start -->
+      <div class="blog_section">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <h1 class="blog_taital">Our Blog</h1>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-lg-8 col-md-12">
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="blog_box">
+                           <div class="blog_img">
+                              <img src="images/img-1.png" alt="Blog Post">
+                              <div class="blog_date">15 Jan</div>
+                           </div>
+                           <div class="blog_content">
+                              <h3 class="blog_title"><a href="#">Latest Advances in Medical Technology</a></h3>
+                              <div class="blog_meta">
+                                 <span><i class="fa fa-user"></i> Dr. John Smith</span>
+                                 <span><i class="fa fa-comments"></i> 5 Comments</span>
+                              </div>
+                              <p class="blog_text">Discover the latest breakthroughs in medical technology that are revolutionizing healthcare and improving patient outcomes worldwide.</p>
+                              <div class="read_more">
+                                 <a href="#">Read More</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="blog_box">
+                           <div class="blog_img">
+                              <img src="images/img-2.png" alt="Blog Post">
+                              <div class="blog_date">12 Jan</div>
+                           </div>
+                           <div class="blog_content">
+                              <h3 class="blog_title"><a href="#">Healthy Living Tips for 2024</a></h3>
+                              <div class="blog_meta">
+                                 <span><i class="fa fa-user"></i> Dr. Sarah Johnson</span>
+                                 <span><i class="fa fa-comments"></i> 8 Comments</span>
+                              </div>
+                              <p class="blog_text">Learn essential health tips and lifestyle changes that can help you maintain optimal health and wellness throughout the year.</p>
+                              <div class="read_more">
+                                 <a href="#">Read More</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="blog_box">
+                           <div class="blog_img">
+                              <img src="images/img-3.png" alt="Blog Post">
+                              <div class="blog_date">10 Jan</div>
+                           </div>
+                           <div class="blog_content">
+                              <h3 class="blog_title"><a href="#">Understanding Heart Disease Prevention</a></h3>
+                              <div class="blog_meta">
+                                 <span><i class="fa fa-user"></i> Dr. Michael Brown</span>
+                                 <span><i class="fa fa-comments"></i> 12 Comments</span>
+                              </div>
+                              <p class="blog_text">Comprehensive guide on heart disease prevention, risk factors, and the importance of regular cardiovascular check-ups.</p>
+                              <div class="read_more">
+                                 <a href="#">Read More</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="blog_box">
+                           <div class="blog_img">
+                              <img src="images/img-4.png" alt="Blog Post">
+                              <div class="blog_date">08 Jan</div>
+                           </div>
+                           <div class="blog_content">
+                              <h3 class="blog_title"><a href="#">Mental Health Awareness</a></h3>
+                              <div class="blog_meta">
+                                 <span><i class="fa fa-user"></i> Dr. Emily Davis</span>
+                                 <span><i class="fa fa-comments"></i> 6 Comments</span>
+                              </div>
+                              <p class="blog_text">Understanding mental health, recognizing signs of stress and anxiety, and learning effective coping strategies for better mental wellness.</p>
+                              <div class="read_more">
+                                 <a href="#">Read More</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="blog_box">
+                           <div class="blog_img">
+                              <img src="images/img-5.png" alt="Blog Post">
+                              <div class="blog_date">05 Jan</div>
+                           </div>
+                           <div class="blog_content">
+                              <h3 class="blog_title"><a href="#">Nutrition and Diet Guidelines</a></h3>
+                              <div class="blog_meta">
+                                 <span><i class="fa fa-user"></i> Dr. Lisa Wilson</span>
+                                 <span><i class="fa fa-comments"></i> 9 Comments</span>
+                              </div>
+                              <p class="blog_text">Expert advice on balanced nutrition, dietary guidelines, and the role of proper nutrition in maintaining good health.</p>
+                              <div class="read_more">
+                                 <a href="#">Read More</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="blog_box">
+                           <div class="blog_img">
+                              <img src="images/img-1.png" alt="Blog Post">
+                              <div class="blog_date">03 Jan</div>
+                           </div>
+                           <div class="blog_content">
+                              <h3 class="blog_title"><a href="#">Exercise and Physical Fitness</a></h3>
+                              <div class="blog_meta">
+                                 <span><i class="fa fa-user"></i> Dr. Robert Taylor</span>
+                                 <span><i class="fa fa-comments"></i> 7 Comments</span>
+                              </div>
+                              <p class="blog_text">The importance of regular exercise, different types of physical activities, and how to create a sustainable fitness routine.</p>
+                              <div class="read_more">
+                                 <a href="#">Read More</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="pagination">
+                     <ul>
+                        <li><a href="#">Previous</a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">Next</a></li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-12">
+                  <div class="blog_sidebar">
+                     <div class="sidebar_widget">
+                        <h3 class="widget_title">Search</h3>
+                        <div class="search_form">
+                           <input type="text" class="search_input" placeholder="Search articles...">
+                           <div class="search_btn">
+                              <a href="#">Search</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="sidebar_widget">
+                        <h3 class="widget_title">Recent Posts</h3>
+                        <div class="recent_posts">
+                           <div class="recent_post">
+                              <div class="recent_post_img">
+                                 <img src="images/img-1.png" alt="Recent Post">
+                              </div>
+                              <div class="recent_post_content">
+                                 <h4 class="recent_post_title"><a href="#">Latest Medical Technology</a></h4>
+                                 <div class="recent_post_date">January 15, 2024</div>
+                              </div>
+                           </div>
+                           <div class="recent_post">
+                              <div class="recent_post_img">
+                                 <img src="images/img-2.png" alt="Recent Post">
+                              </div>
+                              <div class="recent_post_content">
+                                 <h4 class="recent_post_title"><a href="#">Healthy Living Tips</a></h4>
+                                 <div class="recent_post_date">January 12, 2024</div>
+                              </div>
+                           </div>
+                           <div class="recent_post">
+                              <div class="recent_post_img">
+                                 <img src="images/img-3.png" alt="Recent Post">
+                              </div>
+                              <div class="recent_post_content">
+                                 <h4 class="recent_post_title"><a href="#">Heart Disease Prevention</a></h4>
+                                 <div class="recent_post_date">January 10, 2024</div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="sidebar_widget">
+                        <h3 class="widget_title">Categories</h3>
+                        <div class="categories_list">
+                           <ul>
+                              <li><a href="#">Medical Technology</a></li>
+                              <li><a href="#">Health & Wellness</a></li>
+                              <li><a href="#">Cardiology</a></li>
+                              <li><a href="#">Mental Health</a></li>
+                              <li><a href="#">Nutrition</a></li>
+                              <li><a href="#">Fitness</a></li>
+                              <li><a href="#">Preventive Care</a></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- blog section end -->
+      
+      <!-- footer section start -->
+      <div class="footer_section">
+         <div class="container">
+            <div class="input_bt">
+               <input type="text" class="mail_bt" placeholder="Enter Your Email" name="Enter your email">
+               <span class="subscribe_bt" id="basic-addon2"><a href="#">Subscribe</a></span>
+            </div>
+            <div class="footer_section_2">
+               <div class="row">
+                  <div class="col-lg-3 col-sm-6">
+                     <h3 class="footer_taital">Address</h3>
+                     <div class="location_main">
+                        <ul>
+                           <li>
+                              <a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                              <span class="padding_15">Making this the first true</span></a>
+                           </li>
+                           <li>
+                              <a href="#"><i class="fa fa-phone" aria-hidden="true"></i>
+                              <span class="padding_15">Call : +01 1234567890</span></a>
+                           </li>
+                           <li>
+                              <a href="#"><i class="fa fa-envelope" aria-hidden="true"></i>
+                              <span class="padding_15">Email : demo@gmail.com</span></a>
+                           </li>
+                        </ul>
+                     </div>
+                     <div class="footer_social_icon">
+                        <ul>
+                           <li>
+                              <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                           </li>
+                           <li>
+                              <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                           </li>
+                           <li>
+                              <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                           </li>
+                           <li>
+                              <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="col-lg-3 col-sm-6">
+                     <h3 class="footer_taital">Useful Link</h3>
+                     <div class="footer_menu">
+                        <ul>
+                           <li>
+                              <a href="index.html">Home</a>
+                           </li>
+                           <li>
+                              <a href="about.html">About</a>
+                           </li>
+                           <li>
+                              <a href="doctors.html">Doctors</a>
+                           </li>
+                           <li class="active">
+                              <a href="blog.html">Blog</a>
+                           </li>
+                           <li>
+                              <a href="treatment.html">Treatment</a>
+                           </li>
+                           <li>
+                              <a href="contact.html">Contact Us</a>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="col-lg-3 col-sm-6">
+                     <h3 class="footer_taital">Help & Support</h3>
+                     <p class="ipsum_text">Opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page</p>
+                  </div>
+                  <div class="col-lg-3 col-sm-6">
+                     <h3 class="footer_taital">News</h3>
+                     <div class="dryfood_text"><img src="images/img-4.png"><span class="padding_15">Normal distribution</span></div>
+                     <div class="dryfood_text"><img src="images/img-5.png"><span class="padding_15">Normal distribution</span></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- footer section end -->
+      <!-- copyright section start -->
+      <div class="copyright_section">
+         <div class="container">
+            <p class="copyright_text">2024 All Rights Reserved. Design by <a href="https://html.design">Free Html Templates</a> Distribution By <a href="https://themewagon.com">ThemWagons</a></p>
+         </div>
+      </div>
+      <!-- copyright section end -->
+      <!-- Javascript files-->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/jquery-3.0.0.min.js"></script>
+      <script src="js/plugin.js"></script>
+      <!-- sidebar -->
+      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="js/custom.js"></script>
+      <!-- javascript --> 
+      <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>  
+      <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+   </body>
+</html>
